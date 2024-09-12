@@ -1,7 +1,7 @@
-<H3>ENTER YOUR NAME : Vishal.s</H3>
-<H3>ENTER YOUR REGISTER NO  : 212223240184 </H3>
+<H3>Name : Suman G A</H3>
+<H3>REGISTER NO: 212223240163 </H3>
 <H3>EX. NO.1</H3>
-
+<H3>DATE :</H3>
 <H1 ALIGN =CENTER> Introduction to Kaggle and Data preprocessing</H1>
 
 ## AIM:
@@ -37,88 +37,134 @@ STEP 5:Normalizing the data<BR>
 STEP 6:Splitting the data into test and train<BR>
 
 ##  PROGRAM:
-```
+
+### IMPORT LIBRARIES : 
+
+```py
 import pandas as pd
 import io
 from sklearn.preprocessing import StandardScaler
 from sklearn.preprocessing import MinMaxScaler
 from sklearn.model_selection import train_test_split
+from scipy import stats
+import numpy as np
+```
 
-data = pd.read_csv("Churn_Modelling.csv")
-data
-data.head()
+### READ THE DATA: 
+```py
+df=pd.read_csv("Churn_Modelling.csv")
+```
 
-X=data.iloc[:,:-1].values
+### CHECK DATA: 
+```py
+df.head()
+df.tail()
+df.columns
+```
+
+### CHECK THE MISSING DATA:
+```py
+df.isnull().sum()
+```
+
+### ASSIGNING X:
+```py
+X = df.iloc[:,:-1].values
 X
+```
 
-y=data.iloc[:,-1].values
-y
+### ASSIGNING Y:
+```py
+Y = df.iloc[:,-1].values
+Y
+```
 
-data.isnull().sum()
+### CHECK FOR OUTLIERS:
+```py
+df.describe()
+```
 
-data.duplicated()
+### DROPPING STRING VALUES DATA FROM DATASET:
+```py
+data = df.drop(['Surname', 'Geography','Gender'], axis=1)
+```
 
-data.describe()
-
-data = data.drop(['Surname', 'Geography','Gender'], axis=1)
+### CHECKING DATASETS AFTER DROPPING STRING VALUES DATA FROM DATASET:
+```py
 data.head()
+```
 
+### NORMALIE THE DATASET USING (MinMax Scaler):
+```py
 scaler=MinMaxScaler()
 df1=pd.DataFrame(scaler.fit_transform(data))
 print(df1)
+```
 
-X_train ,X_test ,y_train,y_test=train_test_split(X,y,test_size=0.2)
+### SPLIT THE DATASET:
+```py
+X=df.iloc[:,:-1].values
+Y=df.iloc[:,-1].values
+print(X)
+print(Y)
+```
 
-X_train
-
-X_test
-
-print("Lenght of X_test ",len(X_test))
-
+### TRAINING AND TESTING MODEL:
+```py
+X_train ,X_test ,Y_train,Y_test=train_test_split(X,Y,test_size=0.2)
+print("X_train\n")
+print(X_train)
+print("\nLenght of X_train ",len(X_train))
+print("\nX_test\n")
+print(X_test)
+print("\nLenght of X_test ",len(X_test))
 ```
 
 
+
 ## OUTPUT:
-### Dataset:
+### DATA CHECKING:
+![image](https://github.com/user-attachments/assets/2f2af1a5-66bc-48b9-8298-99a5a104207b)
 
-![image](https://github.com/user-attachments/assets/2da8e209-4780-49e0-8f6f-e5052eabee39)
 
-### X Values:
 
-![image](https://github.com/user-attachments/assets/f4b1a0d2-5f49-48e0-bc17-4a1e791afd0a)
+### MISSING DATA:
+![image](https://github.com/user-attachments/assets/46347af4-3dae-45bd-b63e-c284fd5c0ff6)
 
-### Y Values:
 
-![image](https://github.com/user-attachments/assets/6510c509-90dc-471c-87ab-447b09b2eeb3)
-
-### Null Values:
-
-![image](https://github.com/user-attachments/assets/d0f951ef-ecd2-4ba2-bfcf-822d5584e989)
-
-### Duplicated Values:
-![image](https://github.com/user-attachments/assets/b4c11e27-a28c-4e53-ab48-4d5fc4a641ec)
-
-### Description:
-
-![image](https://github.com/user-attachments/assets/be9b4326-36bc-4fc0-a8b1-f3d94156019b)
-
-### Normalized Dataset:
-![image](https://github.com/user-attachments/assets/7d6aef80-b1ae-4051-aeec-955a81afab74)
+### DUPLICATES IDENTIFICATION:
+![image](https://github.com/user-attachments/assets/112b193c-5bb8-425a-92a7-8f30f5903949)
 
 
 
 
+### VALUE OF Y:
+![image](https://github.com/user-attachments/assets/62ea3cd7-0d7d-48e7-a153-4d4d9be6150c)
 
 
-### Testing Data:
-![image](https://github.com/user-attachments/assets/c5873f5c-ceb9-48b2-878b-c88de9325785)
+### OUTLIERS:
+![image](https://github.com/user-attachments/assets/9dd99cc4-f6b5-432e-bc5b-f4b20b7aee22)
 
+
+### CHECKING DATASET AFTER DROPPING STRING VALUES DATA FROM DATASET:
+![image](https://github.com/user-attachments/assets/526f33a3-e989-4c82-8638-1e5ece4f0284)
+
+
+### NORMALIZE THE DATASET:
+![image](https://github.com/user-attachments/assets/3d4727b7-757c-4a57-b38e-1efaed72555e)
+
+
+### SPLIT THE DATASET:
+![image](https://github.com/user-attachments/assets/10e5ba79-f97f-44b7-8efa-8653048afc34)
+
+
+### TRAINING AND TESTING MODEL:
+![image](https://github.com/user-attachments/assets/a7c0cb51-6751-407f-aff1-bf409c7815f8)
 
 
 
 
 ## RESULT:
 Thus, Implementation of Data Preprocessing is done in python  using a data set downloaded from Kaggle.
-
 
 
