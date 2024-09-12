@@ -1,4 +1,4 @@
-<H3>Name : Suman G A</H3>
+<H3>Name : Suman G </H3>
 <H3>REGISTER NO: 212223240163 </H3>
 <H3>EX. NO.1</H3>
 <H3>DATE :</H3>
